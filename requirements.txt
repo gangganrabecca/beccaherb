@@ -6,7 +6,7 @@ python-multipart==0.0.6
 pillow>=10.0.0
 opencv-python-headless==4.10.0.84
 numpy==2.2.6
-inference-sdk==0.56.0
+inference-sdk
 neo4j==4.4.12
 pydantic==2.5.0
 python-dotenv==1.0.0
