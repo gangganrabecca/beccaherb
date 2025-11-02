@@ -1,1 +1,5 @@
-gunicorn app.main:app --preload --bind 0.0.0.0:$PORT -k uvicorn.workers.UvicornWorker
+services:
+  - type: web
+    name: beccaherb-backend
+    env: docker
+    plan: free
