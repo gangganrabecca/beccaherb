@@ -5,48 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌿 Herbal Plant Detector</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🌿 Herbal Plant Detector</h1>
-            <p class="subtitle">Discover the secrets of nature's healing plants</p>
-        </div>
+        <header class="header">
+            <h1>🌱 Herbal Plant Detector</h1>
+            <p class="subtitle">Discover the magic of medicinal plants around you!</p>
+        </header>
 
-        <div class="upload-section">
-            <div class="upload-box" id="uploadBox">
-                <div class="upload-content">
-                    <div class="upload-icon">📸</div>
-                    <p class="upload-text">Click or drag to upload a plant image</p>
-                    <p class="upload-hint">Supports JPG, PNG, GIF</p>
-                    <input type="file" id="fileInput" accept="image/*" hidden>
+        <main>
+            <section class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-content">
+                        <div class="upload-icon">📷</div>
+                        <p class="upload-text">Click or drop your plant photo here</p>
+                        <p class="upload-hint">Supports JPG, PNG, GIF</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
                 </div>
+                <button id="detectBtn" class="detect-btn" disabled>🔍 Detect Plant</button>
+            </section>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing your plant...</p>
             </div>
-            <button id="detectBtn" class="detect-btn" disabled>🔍 Detect Plant</button>
-        </div>
 
-        <div class="preview-section" id="previewSection" style="display: none;">
-            <h2>Uploaded Image</h2>
-            <div class="image-preview">
-                <img id="previewImage" src="" alt="Plant preview">
-            </div>
-        </div>
+            <div id="errorSection" class="error-section"></div>
 
-        <div class="loading" id="loading" style="display: none;">
-            <div class="spinner"></div>
-            <p>Analyzing your plant... 🌱</p>
-        </div>
-
-        <div class="results-section" id="resultsSection" style="display: none;">
-            <div class="result-card">
-                <div class="result-header">
-                    <h2 id="plantName">Plant Name</h2>
-                    <span class="confidence-badge" id="confidenceBadge">95%</span>
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2 id="plantName">Plant Name</h2>
+                        <span class="confidence-badge" id="confidenceBadge">95%</span>
+                    </div>
+                    
+                    <div class="result-image">
+                        <img id="resultImage" src="" alt="Detected plant">
+                    </div>
+                    
+                    <div class="plant-details">
+                        <div class="detail-item">
+                            <h3>🔬 Scientific Name</h3>
+                            <p id="scientificName">Scientific name will appear here</p>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <h3>💊 Benefits</h3>
+                            <ul id="benefitsList" class="info-list">
+                                <!-- Benefits will be added by JavaScript -->
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <h3>⚠️ Cautions</h3>
+                            <ul id="cautionsList" class="info-list">
+                                <!-- Cautions will be added by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button id="resetBtn" class="reset-btn">🔁 Try Another Plant</button>
                 </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>Made with ❤️ for plant lovers</p>
+        </footer>
+    </div>
 
-                <div class="result-image">
-                    <img id="resultImage" src="" alt="Detected plant">
-                </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
 
                 <div class="info-grid">
                     <div class="info-card scientific">
