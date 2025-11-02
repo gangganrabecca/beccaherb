@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Herbal Plant Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌿 Herbal Plant Detector</h1>
+            <p class="subtitle">Discover the secrets of nature's healing plants</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <div class="upload-content">
+                    <div class="upload-icon">📸</div>
+                    <p class="upload-text">Click or drag to upload a plant image</p>
+                    <p class="upload-hint">Supports JPG, PNG, GIF</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+            <button id="detectBtn" class="detect-btn" disabled>🔍 Detect Plant</button>
+        </div>
+
+        <div class="preview-section" id="previewSection" style="display: none;">
+            <h2>Uploaded Image</h2>
+            <div class="image-preview">
+                <img id="previewImage" src="" alt="Plant preview">
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing your plant... 🌱</p>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="result-card">
+                <div class="result-header">
+                    <h2 id="plantName">Plant Name</h2>
+                    <span class="confidence-badge" id="confidenceBadge">95%</span>
+                </div>
+
+                <div class="result-image">
+                    <img id="resultImage" src="" alt="Detected plant">
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card scientific">
+                        <div class="info-icon">🔬</div>
+                        <div class="info-content">
+                            <h3>Scientific Name</h3>
+                            <p id="scientificName">-</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card benefits">
+                        <div class="info-icon">✨</div>
+                        <div class="info-content">
+                            <h3>Benefits</h3>
+                            <ul id="benefitsList"></ul>
+                        </div>
+                    </div>
+
+                    <div class="info-card cautions">
+                        <div class="info-icon">⚠️</div>
+                        <div class="info-content">
+                            <h3>Cautions</h3>
+                            <ul id="cautionsList"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="try-again-btn" onclick="resetUpload()">🔄 Try Another Plant</button>
+            </div>
+        </div>
+
+        <div class="error-section" id="errorSection" style="display: none;">
+            <div class="error-card">
+                <div class="error-icon">😢</div>
+                <h3 id="errorTitle">Oops!</h3>
+                <p id="errorMessage">Something went wrong.</p>
+                <button class="try-again-btn" onclick="resetUpload()">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
